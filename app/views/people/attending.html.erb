@@ -1,5 +1,9 @@
+<h1><strong>- -CME Minyan @ 1:35- -</strong></h1>
+<%= form_tag "/committed", method: :post do %>
 <select>
   <% @people.each do |person| %>
     <option><%= person.name %></option>
   <% end %>
 </select>
+<input type="submit" value="Commit" name="attending">
+<% end %>
