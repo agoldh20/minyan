@@ -1,0 +1,7 @@
+<h2>Minyan Count: <%= @people.count %></h2>
+
+<ul> 
+  <% @people.each do |person| %>
+    <li><%= person.name %> - Remove Button</li>
+  <% end %>
+</ul>
