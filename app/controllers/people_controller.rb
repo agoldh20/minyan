@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
 
   def attending
     @people = Person.all
-    @people = @people.order(:name)
+    @people = @people.order(:name).where(attending: false)
   end
 
   def new
@@ -28,6 +28,18 @@ class PeopleController < ApplicationController
     @person.update(attending: true)
 
     redirect_to '/confirmed'
+  end
+
+  def remove
+    @person = Person.find(params[:id])
+    @person.update(attending: false)
+
+    redirect_to '/confirmed'
+  end
+
+  def reset
+    @people = Person.all
+    @people.update_all(attending: false)
   end
 
   def confirmed

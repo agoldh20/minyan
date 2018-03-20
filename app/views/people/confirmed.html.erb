@@ -1,7 +1,15 @@
+<a href="/">Home</a>
+
 <h2>Minyan Count: <%= @people.count %></h2>
 
 <ul> 
   <% @people.each do |person| %>
-    <li><%= person.name %> - Remove Button</li>
+    <%= form_tag "/remove", method: :patch do %>
+    <li><%= person.name %></li><button name="id" type="submit" value="<%= person.id %>">X</button>
+    <% end %>
   <% end %>
 </ul>
+
+<%= form_tag "/reset", method: :patch do %>
+  <input type="submit" value="Reset List">
+<% end %>

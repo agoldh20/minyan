@@ -1,17 +1,12 @@
 <h1><strong>- -CME Minyan @ 1:35- -</strong></h1>
-<select>
-  <% @people.each do |person| %>
-    <option value="<%= person.id %>"><%= person.name %></option>
-  <% end %>
-</select>
-<input type="submit" value="Commit" onclick="updateAttending()">
+<%= form_tag "/committed", method: :patch do %>
+  <select name="id">
+    <% @people.each do |person| %>
+      <option name="id" value="<%= person.id %>"><%= person.name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Commit">
+<% end %>
 
 
-<script src="text/javasript">
-  function updateAttending() {
-    var attending = $(true)
-  }
-  $.ajax({
-      method: "PATCH",
-      url: "/commited",
-</script>

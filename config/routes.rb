@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   get '/people/:id' => 'people#show'
 
-  get '/committed/:id/confirm' => 'people#edit'
-  patch '/committed/:id' => 'people#update'
+  patch '/committed' => 'people#update'
+  patch '/remove' => 'people#remove'
+  patch '/reset' => 'people#reset'
 
   get '/confirmed' => 'people#confirmed'
 end
