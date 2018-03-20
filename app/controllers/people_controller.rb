@@ -40,6 +40,8 @@ class PeopleController < ApplicationController
   def reset
     @people = Person.all
     @people.update_all(attending: false)
+
+    redirect_to '/confirmed'
   end
 
   def confirmed
