@@ -21,6 +21,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '~> 4.3.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'sidekiq-cron', '~> 0.6.3'
+gem 'whenever', '~> 0.10.0'
+gem 'twilio-ruby', '~> 5.7', '>= 5.7.1'
+gem 'figaro'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
