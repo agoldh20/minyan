@@ -48,4 +48,11 @@ class PeopleController < ApplicationController
     @people = Person.where(attending: true)
   end
 
+  def send_text
+    person = Person.find(params[:id])
+    ContactJob.perform_now(person.number)
+
+    redirect_to '/people'
+  end
+
 end

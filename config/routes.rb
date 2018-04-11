@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   patch '/remove' => 'people#remove'
   patch '/reset' => 'people#reset'
 
+  post '/send_text/:id' => 'people#send_text'
+
   get '/confirmed' => 'people#confirmed'
 end
