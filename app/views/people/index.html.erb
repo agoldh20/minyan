@@ -1,8 +1,7 @@
-<ul> 
-  <% @people.each do |person| %>
-    <li><%= person.name %> - Remove button</li>
-    <%= button_to "Send Text", "/send_text/#{ person.id }", method: :post %>
-  <% end %>
-</ul>
-
-Add Button
+<div>
+  <ul>
+    <% @people.each do |person| %>
+      <li><a href="/people/<%= person.id %>"><%= person.full_name %></a> -- <%= person.status %></li>
+    <% end %>
+  </ul>
+</div>

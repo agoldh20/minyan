@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <h3><%= @person.full_name %></h3>
+  </div>
+  <div>
+    <h3>Email: <%= @person.email %></h3>
+  </div>
+  <div>
+    <h3>Phone: <%= @person.phone %></h3>
+  </div>
+  <div>
+    <h3>Status: <%= @person.status %></h3>
+  </div>
+  <div>
+    <%= link_to "Edit", "/people/#{@person.id}/edit" %>
+  </div>
+</div>

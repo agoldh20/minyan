@@ -3,20 +3,21 @@ class PeopleController < ApplicationController
     @people = Person.all
   end
 
-  def attending
-    @people = Person.all
-    @people = @people.order(:name).where(attending: false)
-  end
-
   def new
-    @person = Person.new
   end
 
   def create
-    @person = Person.create(
-                            name: params[:name],
-                            attending: false)
-    redirect_to '/people'
+    @person = Person.create!(first_name: params[:first_name],
+                  last_name: params[:last_name],
+                  email: params[:email],
+                  phone: params[:phone],
+                  status: "active")
+
+    redirect_to "/people/#{@person.id}"
+  end
+
+  def show
+    @person = Person.find(params[:id])
   end
 
   def edit
@@ -25,34 +26,17 @@ class PeopleController < ApplicationController
 
   def update
     @person = Person.find(params[:id])
-    @person.update(attending: true)
+    @person.update_attributes(first_name: params[:first_name],
+                              last_name: params[:last_name],
+                              email: params[:email],
+                              phone: params[:phone],
+                              status: params[:status])
 
-    redirect_to '/confirmed'
+    redirect_to "/people/#{@person.id}"
   end
 
-  def remove
+  def delete
     @person = Person.find(params[:id])
-    @person.update(attending: false)
-
-    redirect_to '/confirmed'
+    @person.delete
   end
-
-  def reset
-    @people = Person.all
-    @people.update_all(attending: false)
-
-    redirect_to '/confirmed'
-  end
-
-  def confirmed
-    @people = Person.where(attending: true)
-  end
-
-  def send_text
-    person = Person.find(params[:id])
-    ContactJob.perform_now(person.number)
-
-    redirect_to '/people'
-  end
-
 end

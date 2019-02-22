@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
-  get '/' => 'people#attending'
-
-  get '/people' => 'people#index'
-
+  get '/people/' => 'people#index'
   get '/people/new' => 'people#new'
-  post '/people' => 'people#create'
-
+  post '/people/' => 'people#create'
   get '/people/:id' => 'people#show'
+  get '/people/:id/edit' => 'people#edit'
+  patch '/people/:id' => 'people#update'
+  delete '/people/:id' => 'people#destroy'
 
-  patch '/committed' => 'people#update'
-  patch '/remove' => 'people#remove'
-  patch '/reset' => 'people#reset'
-
-  post '/send_text/:id' => 'people#send_text'
-
-  get '/confirmed' => 'people#confirmed'
+  # get '/minyan' => 'minyan_tracker#index'
+  
 end

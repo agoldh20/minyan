@@ -1,1 +1,23 @@
-<%= link_to "Confirm", "/committed/#{@person.id}", method: :patch do %>
+<div>
+  <%= form_tag "/people/#{@person.id}", method: :patch do %>
+    <div>
+      <input type="text" name="first_name" value="<%= @person.first_name %>">
+    </div>
+    <div>
+      <input type="text" name="last_name" value="<%= @person.last_name %>">
+    </div>
+    <div>
+      <input type="text" name="email" value="<%= @person.email %>">
+    </div>
+    <div>
+      <input type="text" name="phone" value="<%= @person.phone %>">
+    </div>
+    <div>
+      <select name= "status">
+        <option value="active" <%= 'selected="selected"' if @person.status == "active" %>>Active</option>
+        <option value="inactive" <%= 'selected="selected"' if @person.status == "inactive" %>>Inactive</option>
+      </select>
+    </div>
+    <input type="submit" value="Update Person">
+  <% end %>
+</div>

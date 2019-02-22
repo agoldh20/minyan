@@ -1,4 +1,19 @@
-<%= form_tag "/people", method: :post do %>
-  <input type="text" name="name" placeholder="First-name  Last-name">
-  <input type="submit" value="Add">
-<% end %>
+<div>
+  <%= form_tag "/people/", method: :post do %>
+    <div>
+      <input type="text" name="first_name" placeholder="First Name">
+    </div>
+    <div>
+      <input type="text" name="last_name" placeholder="Last Name">
+    </div>
+    <div>
+      <input type="text" name="email" placeholder="Email">
+    </div>
+    <div>
+      <input type="text" name="phone" placeholder="Phone">
+    </div>
+    <div>
+      <input type="submit" value="Add Person">
+    </div>
+  <% end %>
+</div>

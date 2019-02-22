@@ -1,0 +1,2 @@
+class MinyanTracker < ApplicationRecord
+end

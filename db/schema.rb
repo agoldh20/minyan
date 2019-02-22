@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321235242) do
+ActiveRecord::Schema.define(version: 2019_02_17_174549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "people", force: :cascade do |t|
-    t.string "name"
+  create_table "minyan_trackers", force: :cascade do |t|
+    t.integer "person_id"
     t.boolean "attending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "number"
+    t.string "day"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
